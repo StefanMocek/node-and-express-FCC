@@ -1,12 +1,11 @@
 let express = require('express');
 const res = require('express/lib/response');
 let app = express();
-var bGround = require('fcc-express-bground')
 require('dotenv').config();
 
-app.use((req,res)=>{
-    console.log(req.method, req.path + " - " + req.ip)
-    next()
+app.use((req,res, next)=>{
+    console.log(" " + req.method + " " + req.path + " - " + req.ip + " ");
+  next()
 })
 
 app.use("/public", express.static(__dirname + "/public"))
